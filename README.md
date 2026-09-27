@@ -1,6 +1,6 @@
 # Stripe Node starter
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) [![Node.js >=22.9](https://img.shields.io/badge/node-%3E%3D22.9-339933?logo=node.js&logoColor=white)](https://nodejs.org)
+[![CI](https://github.com/8g559qzyx6-glitch/stripe-node-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/8g559qzyx6-glitch/stripe-node-starter/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) [![Node.js >=22.9](https://img.shields.io/badge/node-%3E%3D22.9-339933?logo=node.js&logoColor=white)](https://nodejs.org)
 
 One-time payments with Stripe Checkout (US / USD), plus a signature-verified webhook that handles fulfillment.
 
@@ -20,6 +20,10 @@ One-time payments with Stripe Checkout (US / USD), plus a signature-verified web
 - `POST /webhook`: verifies the Stripe signature, then fulfills on `checkout.session.completed` and
   `checkout.session.async_payment_succeeded` once `payment_status` is `paid`.
 - The success page is display-only. Customers can close the tab before it loads, so it never fulfills.
+
+## Tests
+
+`npm test` runs an offline suite (routing, input validation, webhook signature checks) with dummy keys; no Stripe account needed. CI runs it on Node 22 and 24 for every push and pull request.
 
 ## Before going live
 
