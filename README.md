@@ -1,5 +1,7 @@
 # Stripe Node starter
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) [![Node.js >=22.9](https://img.shields.io/badge/node-%3E%3D22.9-339933?logo=node.js&logoColor=white)](https://nodejs.org)
+
 One-time payments with Stripe Checkout (US / USD), plus a signature-verified webhook that handles fulfillment.
 
 ## Setup
@@ -26,3 +28,7 @@ One-time payments with Stripe Checkout (US / USD), plus a signature-verified web
 - Use a live restricted key, register a live webhook endpoint in the Dashboard, and set `DOMAIN`.
 - Only enable `automatic_tax` after adding a state tax registration in Stripe Tax.
 - Work through https://docs.stripe.com/get-started/checklist/go-live.md
+
+## License
+
+[MIT](LICENSE)
