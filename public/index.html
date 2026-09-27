@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout</title>
+  <style>body{font-family:system-ui,sans-serif;max-width:28rem;margin:4rem auto;padding:0 1rem}button{font-size:1rem;padding:.6rem 1.2rem;cursor:pointer}</style>
+</head>
+<body>
+  <h1>Starter product</h1>
+  <p>$20.00</p>
+  <button id="checkout">Checkout</button>
+  <p id="error" role="alert" style="color:#b00020"></p>
+  <script>
+    document.getElementById('checkout').addEventListener('click', async (e) => {
+      e.target.disabled = true;
+      try {
+        const res = await fetch('/create-checkout-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ productId: 'starter' }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error);
+        window.location.href = data.url;
+      } catch (err) {
+        document.getElementById('error').textContent = err.message || 'Something went wrong';
+        e.target.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
